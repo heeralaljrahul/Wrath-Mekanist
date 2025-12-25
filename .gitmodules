@@ -1,0 +1,17 @@
+[submodule "FFXIVClientStructs"]
+	path = FFXIVClientStructs
+	url = https://github.com/aers/FFXIVClientStructs.git
+	
+[submodule "lib/FFXIVClientStructs"]
+	path = lib/FFXIVClientStructs
+	url = https://github.com/aers/FFXIVClientStructs.git
+[submodule "ECommons"]
+	path = ECommons
+	url = https://github.com/NightmareXIV/ECommons.git
+[submodule "PunishLib"]
+	path = PunishLib
+	url = https://github.com/PunishXIV/PunishLib.git
+	branch = master
+[submodule "WrathCombo.API"]
+	path = WrathCombo.API
+	url = https://github.com/PunishXIV/WrathCombo.API.git
