@@ -359,7 +359,7 @@ internal partial class MCH : PhysicalRanged
                     if (ActionReady(Tactician) &&
                         IsEnabled(Preset.MCH_ST_Adv_Tactician) && RaidWideCasting() &&
                         NumberOfAlliesInRange(Tactician) >= GetPartyMembers().Count * .75 &&
-                        !HasAnyStatusEffects([BRD.Buffs.Troubadour, DNC.Buffs.ShieldSamba, Buffs.Tactician], anyOwner: true))
+                        !HasStatusEffect(Buffs.Tactician, anyOwner: true))
                         return Tactician;
 
                     if (IsEnabled(Preset.MCH_ST_Dismantle) &&
