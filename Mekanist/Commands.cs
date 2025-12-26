@@ -717,7 +717,7 @@ public partial class Mekanist
         if (argument[0].Length <= 0)
         {
             // Handle the "Open to current job" setting
-            if (ConfigWindow.IsOpen && !openingToPvP)
+            if (ConfigWindow.IsOpen)
                 PvEFeatures.OpenToCurrentJob(false);
 
             // Skip trying to process arguments
