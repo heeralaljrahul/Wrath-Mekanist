@@ -362,68 +362,8 @@ internal class Debug : ConfigWindow, IDisposable
             ImGui.Separator();
             switch (Player.Job)
             {
-                case Job.PLD:
-                    Util.ShowStruct(&JobGaugeManager.Instance()->Paladin);
-                    break;
-                case Job.MNK:
-                    Util.ShowStruct(&JobGaugeManager.Instance()->Monk);
-                    break;
-                case Job.WAR:
-                    Util.ShowStruct(&JobGaugeManager.Instance()->Warrior);
-                    break;
-                case Job.DRG:
-                    Util.ShowStruct(&JobGaugeManager.Instance()->Dragoon);
-                    break;
-                case Job.BRD:
-                    Util.ShowStruct(&JobGaugeManager.Instance()->Bard);
-                    break;
-                case Job.WHM:
-                    Util.ShowStruct(&JobGaugeManager.Instance()->WhiteMage);
-                    break;
-                case Job.BLM:
-                    Util.ShowStruct(&JobGaugeManager.Instance()->BlackMage);
-                    break;
-                case Job.SMN:
-                    Util.ShowStruct(&JobGaugeManager.Instance()->Summoner);
-                    break;
-                case Job.SCH:
-                    Util.ShowStruct(&JobGaugeManager.Instance()->Scholar);
-                    break;
-                case Job.NIN:
-                    Util.ShowStruct(&JobGaugeManager.Instance()->Ninja);
-                    break;
                 case Job.MCH:
                     Util.ShowStruct(&JobGaugeManager.Instance()->Machinist);
-                    break;
-                case Job.DRK:
-                    Util.ShowStruct(&JobGaugeManager.Instance()->DarkKnight);
-                    break;
-                case Job.AST:
-                    Util.ShowStruct(&JobGaugeManager.Instance()->Astrologian);
-                    break;
-                case Job.SAM:
-                    Util.ShowStruct(&JobGaugeManager.Instance()->Samurai);
-                    break;
-                case Job.RDM:
-                    Util.ShowStruct(&JobGaugeManager.Instance()->RedMage);
-                    break;
-                case Job.GNB:
-                    Util.ShowStruct(&JobGaugeManager.Instance()->Gunbreaker);
-                    break;
-                case Job.DNC:
-                    Util.ShowStruct(&JobGaugeManager.Instance()->Dancer);
-                    break;
-                case Job.RPR:
-                    Util.ShowStruct(&JobGaugeManager.Instance()->Reaper);
-                    break;
-                case Job.SGE:
-                    Util.ShowStruct(&JobGaugeManager.Instance()->Sage);
-                    break;
-                case Job.VPR:
-                    Util.ShowStruct(&JobGaugeManager.Instance()->Viper);
-                    break;
-                case Job.PCT:
-                    Util.ShowStruct(&JobGaugeManager.Instance()->Pictomancer);
                     break;
             }
 
@@ -689,7 +629,6 @@ internal class Debug : ConfigWindow, IDisposable
             CustomStyleText($"Duty Action 3:", $"{Action3.ActionName()}");
             CustomStyleText($"Duty Action 4:", $"{Action4.ActionName()}");
             CustomStyleText($"Duty Action 5:", $"{Action5.ActionName()}");
-            CustomStyleText($"In Mudra:", NIN.InMudra);
 
             ImGuiEx.Spacing(new Vector2(0f, SpacingSmall));
 
@@ -1071,9 +1010,9 @@ internal class Debug : ConfigWindow, IDisposable
                     P.IPC.SetCurrentJobAutoRotationReady(_wrathLease!.Value);
                 }
                 ImGui.SameLine();
-                if (ImGui.Button("Set Autorot For WHM"))
+                if (ImGui.Button("Set Autorot For MCH"))
                 {
-                    P.IPC.Leasing.AddRegistrationForCurrentJob(_wrathLease!.Value, Job.WHM);
+                    P.IPC.Leasing.AddRegistrationForCurrentJob(_wrathLease!.Value, Job.MCH);
                 }
 
                 ImGuiEx.Spacing(new Vector2(20, 20));

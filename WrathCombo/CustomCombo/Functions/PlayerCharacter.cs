@@ -62,15 +62,8 @@ internal abstract partial class CustomComboFunctions
 
     public static bool PlayerHasTankStance()
     {
-        return Player.Job switch
-        {
-            Job.GLA or Job.PLD => HasStatusEffect(PLD.Buffs.IronWill),
-            Job.MRD or Job.WAR => HasStatusEffect(WAR.Buffs.Defiance),
-            Job.DRK => HasStatusEffect(DRK.Buffs.Grit),
-            Job.GNB => HasStatusEffect(GNB.Buffs.RoyalGuard),
-            Job.BLU => HasStatusEffect(BLU.Buffs.TankMimicry),
-            _ => false
-        };
+        // MCH is not a tank
+        return false;
     }
 
     public static unsafe bool InBossEncounter()

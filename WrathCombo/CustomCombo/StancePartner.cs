@@ -64,41 +64,8 @@ public static class StancePartner
     {
         PluginLog.Verbose("OnIPCInstanceChange: Trying to run StancePartner ..");
 
-        // Whether we'll loop again, passed to Cast below
-        var callAgainToConfirm = false;
-
-        #region Tank Stance
-
-        Cast(Job.PLD, PLD.IronWill, PLD.Buffs.IronWill,
-            null, ref callAgainToConfirm);
-
-        Cast(Job.WAR, WAR.Defiance, WAR.Buffs.Defiance,
-            null, ref callAgainToConfirm);
-
-        Cast(Job.DRK, DRK.Grit, DRK.Buffs.Grit,
-            null, ref callAgainToConfirm);
-
-        Cast(Job.GNB, GNB.RoyalGuard, GNB.Buffs.RoyalGuard,
-            null, ref callAgainToConfirm);
-
-        #endregion
-
-        #region Dance Partner
-
-        Cast(Job.DNC, DNC.ClosedPosition, DNC.Buffs.ClosedPosition,
-            DNC.DesiredDancePartner, ref callAgainToConfirm);
-
-        #endregion
-
-        // Give up trying after 10 calls
-        if (_stancePartnerRunTries > 10)
-            return;
-
-        // Loop again to re-check
-        if (!callAgainToConfirm) return;
-        _stancePartnerRunTries++;
-        Svc.Framework.RunOnTick(CheckStancePartner!,
-            TimeSpan.FromSeconds(1));
+        // MCH has no stance or dance partner
+        // No actions to perform
     };
 
     /// <summary>

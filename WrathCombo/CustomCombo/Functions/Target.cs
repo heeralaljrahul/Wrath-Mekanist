@@ -59,13 +59,8 @@ internal abstract partial class CustomComboFunctions
 
         //This is a glorified universal check for friendly targets. Will return a correct value regardless of role, level or whatever.
         var isFriendly = chara.CanUseOn(Healer.Role.Esuna);
-        
-        // Try to handle heal-able job NPCs being difficult
-        if (!isFriendly && chara.ObjectKind == ObjectKind.EventNpc)
-        {
-            isFriendly = chara.CanUseOn(WHM.Cure);
-        }
-        
+
+        // MCH cannot heal, so this check may not work for MCH
         return isFriendly;
     }
 
@@ -175,12 +170,8 @@ internal abstract partial class CustomComboFunctions
         if (TargetIsBoss(target))
             return false;
         
-        // Bail if another form of interrupt was recently used
-        if (JustUsedOn(RoleActions.Melee.LegSweep, target) ||
-            JustUsedOn(RoleActions.Tank.Interject, target) ||
-            JustUsedOn(RoleActions.Tank.LowBlow, target) ||
-            JustUsedOn(PLD.ShieldBash, target))
-            return false;
+        // MCH doesn't have interrupt actions
+        // Bail if another form of interrupt was recently used (not applicable to MCH)
 
         var minThreshold = Math.Clamp(minCastPercent ?? Service.Configuration.InterruptDelay, 0f, 1f);
 

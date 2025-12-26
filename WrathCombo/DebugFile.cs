@@ -615,28 +615,7 @@ public static class DebugFile
 
             var configType = job.Value.RowId switch
             {
-                1 or 19 => typeof(PLD.Config),
-                2 or 20 => typeof(MNK.Config),
-                3 or 21 => typeof(WAR.Config),
-                4 or 22 => typeof(DRG.Config),
-                5 or 23 => typeof(BRD.Config),
-                6 or 24 => typeof(WHM.Config),
-                7 or 25 => typeof(BLM.Config),
-                26 or 27 => typeof(SMN.Config),
-                28 => typeof(SCH.Config),
-                29 or 30 => typeof(NIN.Config),
                 31 => typeof(MCH.Config),
-                32 => typeof(DRK.Config),
-                33 => typeof(AST.Config),
-                34 => typeof(SAM.Config),
-                35 => typeof(RDM.Config),
-                //36 => typeof(BLU.Config),
-                37 => typeof(GNB.Config),
-                38 => typeof(DNC.Config),
-                39 => typeof(RPR.Config),
-                40 => typeof(SGE.Config),
-                41 => typeof(VPR.Config),
-                42 => typeof(PCT.Config),
                 _ => throw new NotImplementedException(),
             };
 

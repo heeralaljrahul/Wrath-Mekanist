@@ -263,9 +263,6 @@ public static class ActionWatching
                 UpdateLastUsedAction(actionId, actionType, targetObjectId, castTime),
                 TimeSpan.FromMilliseconds(castTime), cancellationToken: token);
 
-                // Update Helpers
-                NIN.InMudra = NIN.MudraSigns.Contains(actionId);
-
                 if (castTime > 0)
                 {
                     TimeLastActionUsed = DateTime.Now;

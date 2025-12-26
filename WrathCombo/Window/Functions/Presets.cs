@@ -326,62 +326,14 @@ internal class Presets : ConfigWindow
                             OccultCrescent.Config.Draw(preset);
                             break;
                         }
-                    case Job.AST: AST.Config.Draw(preset); break;
-                    case Job.BLM: BLM.Config.Draw(preset); break;
-                    case Job.BLU: BLU.Config.Draw(preset); break;
-                    case Job.BRD: BRD.Config.Draw(preset); break;
-                    case Job.DNC: DNC.Config.Draw(preset); break;
-                    case Job.MIN: DOL.Config.Draw(preset); break;
-                    case Job.DRG: DRG.Config.Draw(preset); break;
-                    case Job.DRK: DRK.Config.Draw(preset); break;
-                    case Job.GNB: GNB.Config.Draw(preset); break;
                     case Job.MCH: MCH.Config.Draw(preset); break;
-                    case Job.MNK: MNK.Config.Draw(preset); break;
-                    case Job.NIN: NIN.Config.Draw(preset); break;
-                    case Job.PCT: PCT.Config.Draw(preset); break;
-                    case Job.PLD: PLD.Config.Draw(preset); break;
-                    case Job.RPR: RPR.Config.Draw(preset); break;
-                    case Job.RDM: RDM.Config.Draw(preset); break;
-                    case Job.SAM: SAM.Config.Draw(preset); break;
-                    case Job.SCH: SCH.Config.Draw(preset); break;
-                    case Job.SGE: SGE.Config.Draw(preset); break;
-                    case Job.SMN: SMN.Config.Draw(preset); break;
-                    case Job.VPR: VPR.Config.Draw(preset); break;
-                    case Job.WAR: WAR.Config.Draw(preset); break;
-                    case Job.WHM: WHM.Config.Draw(preset); break;
                     default:
                         break;
                 }
             }
             else
             {
-                switch (info.Job)
-                {
-                    case Job.ADV: PvPCommon.Config.Draw(preset); break;
-                    case Job.AST: ASTPvP.Config.Draw(preset); break;
-                    case Job.BLM: BLMPvP.Config.Draw(preset); break;
-                    case Job.BRD: BRDPvP.Config.Draw(preset); break;
-                    case Job.DNC: DNCPvP.Config.Draw(preset); break;
-                    case Job.DRG: DRGPvP.Config.Draw(preset); break;
-                    case Job.DRK: DRKPvP.Config.Draw(preset); break;
-                    case Job.GNB: GNBPvP.Config.Draw(preset); break;
-                    case Job.MCH: MCHPvP.Config.Draw(preset); break;
-                    case Job.MNK: MNKPvP.Config.Draw(preset); break;
-                    case Job.NIN: NINPvP.Config.Draw(preset); break;
-                    case Job.PCT: PCTPvP.Config.Draw(preset); break;
-                    case Job.PLD: PLDPvP.Config.Draw(preset); break;
-                    case Job.RPR: RPRPvP.Config.Draw(preset); break;
-                    case Job.RDM: RDMPvP.Config.Draw(preset); break;
-                    case Job.SAM: SAMPvP.Config.Draw(preset); break;
-                    case Job.SCH: SCHPvP.Config.Draw(preset); break;
-                    case Job.SGE: SGEPvP.Config.Draw(preset); break;
-                    case Job.SMN: SMNPvP.Config.Draw(preset); break;
-                    case Job.VPR: VPRPvP.Config.Draw(preset); break;
-                    case Job.WAR: WARPvP.Config.Draw(preset); break;
-                    case Job.WHM: WHMPvP.Config.Draw(preset); break;
-                    default:
-                        break;
-                }
+                // PvP not supported
             }
 
         }

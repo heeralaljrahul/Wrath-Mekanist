@@ -219,14 +219,13 @@ internal static class SimpleTarget
                 {
                     var resolved = GetSimpleTargetValueFromName(name);
                     var target =
-                        CustomLogic(resolved.IfCanUseOn(WHM.Raise).IfTargetable()
+                        CustomLogic(resolved.IfTargetable()
                             .IfDead().IfWithinRange(30));
 
                     if (logging)
                         PluginLog.Verbose(
                             $"[Custom Raise Stack] {name,-25} => " +
                             $"{resolved?.Name ?? "null",-30}" +
-                            $" (Can pop rez on: {resolved.IfCanUseOn(WHM.Raise),5}, " +
                             $"within range: {resolved.IsWithinRange(),5}, " +
                             $"is dead: {resolved.IsDead(),5})"
                         );
@@ -236,7 +235,7 @@ internal static class SimpleTarget
 
                 // Fall back to Hard Target, if the stack is small and returned nothing
                 if (Service.Configuration.RaiseStack.Length <= 4)
-                    return HardTarget.IfCanUseOn(WHM.Raise).IfDead() ??
+                    return HardTarget.IfDead() ??
                            AnyDeadPartyMember;
             }
 
@@ -486,10 +485,7 @@ internal static class SimpleTarget
     #region Party Targets
 
     public static IGameObject? KardionTarget =>
-        Svc.Objects
-            .OfType<IBattleChara>()
-            .FirstOrDefault(x =>
-                HasStatusEffect(SGE.Buffs.Kardion, x));
+        null; // Sage-specific functionality removed
 
     public static IGameObject? AnyDeadPartyMember =>
         GetPartyMembers()

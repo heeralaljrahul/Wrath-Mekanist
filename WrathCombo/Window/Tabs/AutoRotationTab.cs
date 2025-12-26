@@ -49,7 +49,7 @@ internal class AutoRotationTab : ConfigWindow
             {
                 ImGuiExtensions.Prefix(false);
                 changed |= ImGui.Checkbox($"Bypass When Combo Suggests Self-Use Action", ref cfg.BypassBuffs);
-                ImGuiComponents.HelpMarker($"Many jobs have an out of combat action that can be used, for example, {RPR.Soulsow.ActionName()} or {MNK.ForbiddenMeditation.ActionName()}. This will allow these to be used without being in combat.");
+                ImGuiComponents.HelpMarker($"Allows self-use actions to be used without being in combat.");
 
                 ImGuiExtensions.Prefix(false);
                 changed |= ImGui.Checkbox($"Bypass Only in Combat for Quest Targets", ref cfg.BypassQuest);
@@ -233,7 +233,7 @@ internal class AutoRotationTab : ConfigWindow
             P.UIHelper.ShowIPCControlledIndicatorIfNeeded("AutoRez");
             changed |= P.UIHelper.ShowIPCControlledCheckboxIfNeeded(
                 "Auto-Resurrect", ref cfg.HealerSettings.AutoRez, "AutoRez");
-            ImGuiComponents.HelpMarker($"Will attempt to resurrect dead party members. Applies to {Job.CNJ.Shorthand()}, {Job.WHM.Shorthand()}, {Job.SCH.Shorthand()}, {Job.AST.Shorthand()}, {Job.SGE.Shorthand()} and {OccultCrescent.ContentName} {Svc.Data.GetExcelSheet<MKDSupportJob>().GetRow(10).Name} {OccultCrescent.Revive.ActionName()}");
+            ImGuiComponents.HelpMarker($"Will attempt to resurrect dead party members (not applicable to MCH).");
             var autoRez = (bool)P.IPC.GetAutoRotationConfigState(AutoRotationConfigOption.AutoRez)!;
             if (autoRez)
             {
@@ -246,43 +246,41 @@ internal class AutoRotationTab : ConfigWindow
                 changed |= ImGui.Checkbox("Require Swiftcast/Dualcast", ref
                     cfg.HealerSettings.AutoRezRequireSwift);
                 ImGuiComponents.HelpMarker(
-                    $"Requires {RoleActions.Magic.Swiftcast.ActionName()} " +
-                    $"(or {Job.RDM.Shorthand()}'s Dualcast) " +
-                    $"to be available to resurrect a party member, to avoid hard-casting.");
+                    $"Requires Swiftcast or Dualcast to be available to resurrect a party member, to avoid hard-casting.");
 
                 ImGuiExtensions.Prefix(true);
                 P.UIHelper.ShowIPCControlledIndicatorIfNeeded("AutoRezDPSJobs");
                 changed |= P.UIHelper.ShowIPCControlledCheckboxIfNeeded(
-                    $"Apply to {Job.SMN.Shorthand()} & {Job.RDM.Shorthand()}", ref cfg.HealerSettings.AutoRezDPSJobs, "AutoRezDPSJobs");
-                ImGuiComponents.HelpMarker($"When playing as {Job.SMN.Shorthand()} or {Job.RDM.Shorthand()}, also attempt to raise a dead party member. {Job.RDM.Shorthand()} will only resurrect with {RoleActions.Magic.Buffs.Swiftcast.StatusName()} or {RDM.Buffs.Dualcast.StatusName()} active.");
-                
+                    $"Apply to DPS Jobs", ref cfg.HealerSettings.AutoRezDPSJobs, "AutoRezDPSJobs");
+                ImGuiComponents.HelpMarker($"Not applicable to MCH.");
+
                 if (cfg.HealerSettings.AutoRezDPSJobs)
                 {
                     ImGuiExtensions.Prefix(true);
                     P.UIHelper.ShowIPCControlledIndicatorIfNeeded("AutoRezDPSJobsHealersOnly");
                     changed |= P.UIHelper.ShowIPCControlledCheckboxIfNeeded(
                         $"Only Raise Raisers", ref cfg.HealerSettings.AutoRezDPSJobsHealersOnly, "AutoRezDPSJobsHealersOnly");
-                    ImGuiComponents.HelpMarker($"When playing as {Job.SMN.Shorthand()} or {Job.RDM.Shorthand()}, Will only attempt to res Healers and Raisers");
+                    ImGuiComponents.HelpMarker($"Not applicable to MCH.");
                 }
             }
 
             P.UIHelper.ShowIPCControlledIndicatorIfNeeded("AutoCleanse");
             changed |= P.UIHelper.ShowIPCControlledCheckboxIfNeeded(
-                $"Auto-{RoleActions.Healer.Esuna.ActionName()}", ref cfg.HealerSettings.AutoCleanse, "AutoCleanse");
-            ImGuiComponents.HelpMarker($"Will {RoleActions.Healer.Esuna.ActionName()} any cleansable debuffs (Healing takes priority).");
+                $"Auto-Esuna", ref cfg.HealerSettings.AutoCleanse, "AutoCleanse");
+            ImGuiComponents.HelpMarker($"Will Esuna any cleansable debuffs (not applicable to MCH).");
 
             P.UIHelper.ShowIPCControlledIndicatorIfNeeded("ManageKardia");
             changed |= P.UIHelper.ShowIPCControlledCheckboxIfNeeded(
-                $"[{Job.SGE.Shorthand()}] Automatically Manage Kardia", ref cfg.HealerSettings.ManageKardia, "ManageKardia");
-            ImGuiComponents.HelpMarker($"Switches {SGE.Kardia.ActionName()} to party members currently being targeted by enemies, prioritising tanks if multiple people are being targeted.");
+                $"Automatically Manage Kardia", ref cfg.HealerSettings.ManageKardia, "ManageKardia");
+            ImGuiComponents.HelpMarker($"Not applicable to MCH.");
             if (cfg.HealerSettings.ManageKardia)
             {
                 ImGuiExtensions.Prefix(cfg.HealerSettings.ManageKardia);
-                changed |= ImGui.Checkbox($"Limit {SGE.Kardia.ActionName()} swapping to tanks only", ref cfg.HealerSettings.KardiaTanksOnly);
+                changed |= ImGui.Checkbox($"Limit Kardia swapping to tanks only", ref cfg.HealerSettings.KardiaTanksOnly);
             }
 
-            changed |= ImGui.Checkbox($"[{Job.WHM.Shorthand()}/{Job.AST.Shorthand()}/{Job.SCH.Shorthand()}/{Job.SGE.Shorthand()}] Pre-emptively apply Heal Over Time/Shields on focus target", ref cfg.HealerSettings.PreEmptiveHoT);
-            ImGuiComponents.HelpMarker($"Applies {WHM.Regen.ActionName()}/{AST.AspectedBenefic.ActionName()}/{SGE.EukrasianDiagnosis.ActionName()}/{SCH.Adloquium.ActionName()} to your focus target when out of combat and they are 30y or less away from an enemy. (Bypasses \"Only in Combat\" setting)");
+            changed |= ImGui.Checkbox($"Pre-emptively apply Heal Over Time/Shields on focus target", ref cfg.HealerSettings.PreEmptiveHoT);
+            ImGuiComponents.HelpMarker($"Not applicable to MCH.");
 
             P.UIHelper.ShowIPCControlledIndicatorIfNeeded("IncludeNPCs");
             changed |= P.UIHelper.ShowIPCControlledCheckboxIfNeeded("Heal Friendly NPCs", ref cfg.HealerSettings.IncludeNPCs);

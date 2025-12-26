@@ -224,16 +224,8 @@ public static class ConflictingPluginsChecks
 
             ConflictingActions = [0, 0];
 
-            // Check if the user has bunny recently
-            if (CustomComboFunctions.JustUsed(NIN.Rabbit, 45) &&
-                DateTime.Now - _lastBunnyReload > TS.FromSeconds(30))
-            {
-                PluginLog.Verbose(
-                    $"[ConflictingPlugins] [{Name}] Recent Bunny Detected");
-                BunnyConflict = true;
-            }
-            else
-                BunnyConflict = false;
+            // NIN Rabbit detection removed (NIN not supported)
+            BunnyConflict = false;
 
             var conflictedThisCheck = false;
             var wrathRetargeted = PresetStorage.AllRetargetedActions.ToHashSet();

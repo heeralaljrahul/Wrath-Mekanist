@@ -281,27 +281,7 @@ public abstract class WrathOpener
     {
         CurrentOpener = Player.Job switch
         {
-            Job.AST => AST.Opener(),
-            Job.BLM => BLM.Opener(),
-            Job.BRD => BRD.Opener(),
-            Job.DRG => DRG.Opener(),
-            Job.DNC => DNC.Opener(),
-            Job.DRK => DRK.Opener(),
-            Job.GNB => GNB.Opener(),
             Job.MCH => MCH.Opener(),
-            Job.MNK => MNK.Opener(),
-            Job.NIN => NIN.Opener(),
-            Job.PCT => PCT.Opener(),
-            Job.PLD => PLD.Opener(),
-            Job.RDM => RDM.Opener(),
-            Job.RPR => RPR.Opener(),
-            Job.SAM => SAM.Opener(),
-            Job.SMN => SMN.Opener(),
-            Job.SCH => SCH.Opener(),
-            Job.SGE => SGE.Opener(),
-            Job.VPR => VPR.Opener(),
-            Job.WAR => WAR.Opener(),
-            Job.WHM => WHM.Opener(),
             _ => Dummy
         };
         CurrentOpener?.CacheReady = true;

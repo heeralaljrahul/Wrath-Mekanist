@@ -54,7 +54,7 @@ internal abstract partial class CustomCombo : CustomComboFunctions
     private readonly Dictionary<Preset, uint>
         _presetsAllowedToReturnUnchanged = new()
         {
-            { Preset.DNC_DesirablePartner, DNC.ClosedPosition },
+            // No MCH-specific presets require this exception
         };
 
     /// <summary> Performs various checks then attempts to invoke the combo. </summary>

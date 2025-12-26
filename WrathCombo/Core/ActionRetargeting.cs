@@ -301,23 +301,7 @@ public class ActionRetargeting : IDisposable
     /// </summary>
     private static readonly uint[] _actionsAllowedToBeReplacedAction =
     [
-        // Features that only Retarget themselves
-        DNC.ClosedPosition,
-        AST.EssentialDignity,
-        DRK.BlackestNight,
-        DRK.Oblation,
-        GNB.HeartOfStone,
-        GNB.HeartOfCorundum,
-        PLD.Clemency,
-
-        // Resurrection abilities from the "All" feature
-        WHM.Raise,
-        AST.Ascend,
-        SGE.Egeiro,
-        SCH.Resurrection,
-        BLU.AngelWhisper,
-        RDM.Verraise,
-        SMN.Resurrection,
+        // No MCH-specific actions require this exception
     ];
 
     /// <summary>
