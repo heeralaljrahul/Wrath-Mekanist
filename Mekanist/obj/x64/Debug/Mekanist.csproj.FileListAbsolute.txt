@@ -1,0 +1,14 @@
+C:\Users\user-pc\AppData\Roaming\XIVLauncher\devPlugins\Mekanist\images\mekanist.png
+C:\Users\user-pc\AppData\Roaming\XIVLauncher\devPlugins\Mekanist\Mekanist.json
+C:\Users\user-pc\AppData\Roaming\XIVLauncher\devPlugins\Mekanist\Mekanist.deps.json
+C:\Users\user-pc\AppData\Roaming\XIVLauncher\devPlugins\Mekanist\Mekanist.dll
+C:\Users\user-pc\AppData\Roaming\XIVLauncher\devPlugins\Mekanist\Mekanist.pdb
+C:\Users\user-pc\Documents\GitHub\Wrath-Mekanist\Mekanist\obj\x64\Debug\Mekanist.csproj.AssemblyReference.cache
+C:\Users\user-pc\Documents\GitHub\Wrath-Mekanist\Mekanist\obj\x64\Debug\Mekanist.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user-pc\Documents\GitHub\Wrath-Mekanist\Mekanist\obj\x64\Debug\Mekanist.AssemblyInfoInputs.cache
+C:\Users\user-pc\Documents\GitHub\Wrath-Mekanist\Mekanist\obj\x64\Debug\Mekanist.AssemblyInfo.cs
+C:\Users\user-pc\Documents\GitHub\Wrath-Mekanist\Mekanist\obj\x64\Debug\Mekanist.csproj.CoreCompileInputs.cache
+C:\Users\user-pc\Documents\GitHub\Wrath-Mekanist\Mekanist\obj\x64\Debug\Mekanist.sourcelink.json
+C:\Users\user-pc\Documents\GitHub\Wrath-Mekanist\Mekanist\obj\x64\Debug\Mekanist.csproj.Up2Date
+C:\Users\user-pc\Documents\GitHub\Wrath-Mekanist\Mekanist\obj\x64\Debug\Mekanist.dll
+C:\Users\user-pc\Documents\GitHub\Wrath-Mekanist\Mekanist\obj\x64\Debug\Mekanist.pdb
