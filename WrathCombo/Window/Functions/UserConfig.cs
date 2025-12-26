@@ -548,7 +548,8 @@ public static class UserConfig
         for (var i = 0; i < PvPCommon.QuickPurify.Statuses.Length; i++)
         {
             var status = PvPCommon.QuickPurify.Statuses[i];
-            if (ImGui.Checkbox($"{status.label}###{config}{i}", ref values[i]))
+            // Note: status is uint, .label removed with PvP functionality
+            if (ImGui.Checkbox($"Status_{status}###{config}{i}", ref values[i]))
                 Configuration.SetCustomBoolArrayValue(config, values);
 
             ImGui.NextColumn();
