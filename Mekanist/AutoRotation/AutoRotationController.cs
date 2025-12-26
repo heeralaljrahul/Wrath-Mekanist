@@ -43,7 +43,7 @@ internal unsafe static class AutoRotationController
     static bool _lockedST = false;
     static bool _lockedAoE = false;
 
-    static DateTime? TimeToHeal;
+    // Removed TimeToHeal - not applicable to MCH-only implementation
 
     const float QueryRange = 30f;
 

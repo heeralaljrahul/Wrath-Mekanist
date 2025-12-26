@@ -17,11 +17,7 @@ namespace Mekanist.CustomComboNS;
 
 public static class StancePartner
 {
-    /// <summary>
-    ///     The number of times that <see cref="CheckStancePartner" /> has been
-    ///     called.
-    /// </summary>
-    private static int _stancePartnerRunTries;
+    // Removed _stancePartnerRunTries - not applicable to MCH-only implementation
 
     /// <summary>
     ///     The Action to check if an IPC is in control, after a territory change.
@@ -29,9 +25,6 @@ public static class StancePartner
     /// <seealso cref="Mekanist.ClientState_TerritoryChanged"/>
     public static readonly Action CheckForIPCControl = () =>
     {
-        // Reset run count
-        _stancePartnerRunTries = 0;
-
         // Wait (a limited amount of time) for the screen to be ready
         PluginLog.Verbose("OnIPCInstanceChange: Waiting for screen ...");
         byte count = 0;

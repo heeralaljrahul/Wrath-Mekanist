@@ -103,9 +103,6 @@ public partial class Mekanist
             case "pve":
                 HandleOpenCommand(tab: OpenWindow.PvE, forceOpen: true); break;
 
-            case "pvp":
-                HandleOpenCommand(tab: OpenWindow.PvP, forceOpen: true); break;
-
             case "dbg": // unlisted
             case "debugtab": // unlisted
                 HandleOpenCommand(tab: OpenWindow.Debug, forceOpen: true); break;
@@ -706,13 +703,8 @@ public partial class Mekanist
             ConfigWindow.IsOpen = forceOpen.Value;
 
         // Handle option to always open to the PvE tab
-        var openingToPvP =
-            ContentCheck.IsInPVPContent && Service.Configuration.OpenToPvP;
-        if (ConfigWindow.IsOpen)
-            if (openingToPvP)
-                ConfigWindow.OpenWindow = OpenWindow.PvP;
-            else if (Service.Configuration.OpenToPvE)
-                ConfigWindow.OpenWindow = OpenWindow.PvE;
+        if (ConfigWindow.IsOpen && Service.Configuration.OpenToPvE)
+            ConfigWindow.OpenWindow = OpenWindow.PvE;
 
         // Open to specific tab
         if (tab is not null)
