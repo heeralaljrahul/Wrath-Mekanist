@@ -1,4 +1,4 @@
-C:\Users\user-pc\AppData\Roaming\XIVLauncher\devPlugins\Mekanist\images\mekanist.png
+C:\Users\user-pc\AppData\Roaming\XIVLauncher\devPlugins\Mekanist\icon.png
 C:\Users\user-pc\AppData\Roaming\XIVLauncher\devPlugins\Mekanist\Mekanist.json
 C:\Users\user-pc\AppData\Roaming\XIVLauncher\devPlugins\Mekanist\Mekanist.deps.json
 C:\Users\user-pc\AppData\Roaming\XIVLauncher\devPlugins\Mekanist\Mekanist.dll

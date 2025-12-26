@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Based on Wrath Combo by Puni.sh")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Mekanist - MCH combo plugin for FFXIV")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0-beta+87fdc02f4f00f649ed1e2541841b95510b3af92f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0-beta+cc3157bbf295d0c3c8cdfe82cd394ee59f447a55")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mekanist")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mekanist")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
