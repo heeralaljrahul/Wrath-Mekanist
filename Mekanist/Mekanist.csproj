@@ -72,7 +72,7 @@
 
     <!-- Logo -->
     <ItemGroup>
-        <Content Include="..\res\plugin\mekanist.png" Link="images\mekanist.png" CopyToOutputDirectory="PreserveNewest" Visible="false" />
+        <Content Include="..\res\plugin\mekanist.png" Link="icon.png" CopyToOutputDirectory="PreserveNewest" Visible="false" />
     </ItemGroup>
 
     <!-- Dalamud Packaging -->
