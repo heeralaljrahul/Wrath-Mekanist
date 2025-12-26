@@ -1,10 +1,14 @@
 # Build Artifacts
-WrathCombo/obj/
-WrathCombo/bin/
+**/obj/
+**/bin/
+Mekanist/obj/
+Mekanist/bin/
+Mekanist.API/obj/
+Mekanist.API/bin/
 
 # IDE-specific files
 .idea/
-/WrathCombo.sln.DotSettings.user
 .vs/
 *.v2
-/WrathCombo/packages.lock.json
+*.user
+**/packages.lock.json
