@@ -1,0 +1,70 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <!-- Package Metadata -->
+        <PackageId>Mekanist.API</PackageId>
+        <PackageVersion>1.0.0-beta</PackageVersion>
+        <Authors>Bunz (based on WrathCombo.API by zbee)</Authors>
+        <Company>-</Company>
+        <Description>API for Mekanist MCH combo plugin (forked from Wrath Combo)</Description>
+        <PackageTags>mekanist;machinist;mch;auto-rotation;api;ffxiv</PackageTags>
+        <PackageProjectUrl>https://github.com/PunishXIV/WrathCombo</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/PunishXIV/WrathCombo</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageLicenseExpression>AGPL-3.0-only</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <PackageOutputPath>$(OutputPath)nuget</PackageOutputPath>
+        <NoPackageAnalysis>true</NoPackageAnalysis>
+
+        <!-- Build -->
+        <Configurations>Debug;Release</Configurations>
+        <Platforms>x64</Platforms>
+        <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+        <NoWarn>MSB3277</NoWarn>
+
+        <!-- Code Features -->
+        <TargetFramework>net10.0-windows</TargetFramework>
+        <LangVersion>14</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="JetBrains.Annotations" Version="2025.2.4"/>
+    </ItemGroup>
+
+    <!-- Include README; for the NuGet package -->
+    <ItemGroup>
+        <None Include="README.md" Pack="true" PackagePath="/"/>
+    </ItemGroup>
+
+    <!-- Dalamud -->
+    <PropertyGroup>
+        <DalamudLibPath>$(appdata)\XIVLauncher\addon\Hooks\dev\</DalamudLibPath>
+        <DalamudLibPath Condition="$([MSBuild]::IsOSPlatform('Linux'))">
+            $(HOME)/.xlcore/dalamud/Hooks/dev/
+        </DalamudLibPath>
+        <DalamudLibPath Condition="$([MSBuild]::IsOSPlatform('OSX'))">
+            $(HOME)/Library/Application Support/XIV on Mac/dalamud/Hooks/dev/
+        </DalamudLibPath>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="Dalamud">
+            <HintPath>$(DalamudLibPath)Dalamud.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="FFXIVClientStructs">
+            <HintPath>$(DalamudLibPath)FFXIVClientStructs.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+    </ItemGroup>
+
+</Project>
