@@ -7,6 +7,11 @@ namespace WrathCombo.Combos.PvE;
 internal static class OccultCrescent
 {
     /// <summary>
+    /// Revive action ID (Lost actions from Bozja/Zadnor).
+    /// </summary>
+    public const uint Revive = 0;
+
+    /// <summary>
     /// Configuration class stub.
     /// </summary>
     internal static class Config
