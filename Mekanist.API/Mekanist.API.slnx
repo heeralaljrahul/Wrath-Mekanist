@@ -1,5 +1,5 @@
 <Solution>
-    <Project Path="WrathCombo.API.csproj"/>
+    <Project Path="Mekanist.API.csproj"/>
 
     <Folder Name="/Docs/">
         <File Path="Contributing.md"/>

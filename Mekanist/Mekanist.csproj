@@ -9,7 +9,7 @@
         <!-- This is the version that will be used when pushing to the repo.-->
         <Description>Mekanist - MCH combo plugin for FFXIV</Description>
         <Copyright>Based on Wrath Combo by Puni.sh</Copyright>
-        <PackageProjectUrl>https://github.com/PunishXIV/WrathCombo</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/heeralaljrahul/Wrath-Mekanist</PackageProjectUrl>
         <PackageId>Mekanist</PackageId>
         <Product>Mekanist</Product>
     </PropertyGroup>

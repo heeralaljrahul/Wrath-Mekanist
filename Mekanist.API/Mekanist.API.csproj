@@ -8,8 +8,8 @@
         <Company>-</Company>
         <Description>API for Mekanist MCH combo plugin (forked from Wrath Combo)</Description>
         <PackageTags>mekanist;machinist;mch;auto-rotation;api;ffxiv</PackageTags>
-        <PackageProjectUrl>https://github.com/PunishXIV/WrathCombo</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/PunishXIV/WrathCombo</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/heeralaljrahul/Wrath-Mekanist</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/heeralaljrahul/Wrath-Mekanist</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageLicenseExpression>AGPL-3.0-only</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>

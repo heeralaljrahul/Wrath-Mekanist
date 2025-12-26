@@ -5,8 +5,8 @@
   "DalamudApiLevel": 14,
   "Punchline": "Mekanist combo helper - condenses combos and abilities for the MCH job.",
   "Description": "A specialized combo plugin for the MCH job that condenses combos and mutually exclusive abilities onto a single button.",
-  "RepoUrl": "https://github.com/PunishXIV/WrathCombo",
-  "IconUrl": "https://s3.puni.sh/media/plugin/60/icon-2bwhkn3zf1f.png",
+  "RepoUrl": "https://github.com/heeralaljrahul/Wrath-Mekanist",
+  "IconUrl": "",
   "Changelog": "Please check the project's GitHub or Discord for a full changelog.",
   "Tags": [
     "combo",
