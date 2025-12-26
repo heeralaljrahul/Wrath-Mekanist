@@ -274,6 +274,18 @@ public enum Preset
 
     #endregion
 
+    #region ALL (Shared Features)
+
+    [ReplaceSkill(MCH.Tactician)]
+    [CustomComboInfo("Ranged Mitigation Protection", "Prevents using Tactician when the party mitigation buff is already active.", Job.MCH)]
+    ALL_Ranged_Mitigation = 99000,
+
+    [ReplaceSkill(RoleActions.PhysRanged.FootGraze)]
+    [CustomComboInfo("Ranged Interrupt Feature", "Replaces Foot Graze with Head Graze when target can be interrupted.", Job.MCH)]
+    ALL_Ranged_Interrupt = 99001,
+
+    #endregion
+
     #region PvP Combos
 
     #region MACHINIST

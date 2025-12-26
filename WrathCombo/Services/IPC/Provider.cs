@@ -136,7 +136,7 @@ public partial class Provider : IDisposable
         P.IPCSearch.ComboStatesByJob.TryGetValue(Player.Job, out _);
 
         // Build UI-state caches
-        P.UIHelper.PresetControlled(Preset.AST_ST_DPS);
+        // Removed AST_ST_DPS preset check (job removed)
 
         // Mark IPC as ready after caches are built
         output._ipcReady = true;
