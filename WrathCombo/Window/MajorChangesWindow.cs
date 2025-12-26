@@ -26,7 +26,7 @@ internal class MajorChangesWindow : Dalamud.Interface.Windowing.Window
     /// <summary>
     ///     Create a major changes window, with some settings about it.
     /// </summary>
-    public MajorChangesWindow() : base("Wrath Combo | New Changes")
+    public MajorChangesWindow() : base("Mekanist | New Changes")
     {
         PluginLog.Debug(
             "MajorChangesWindow: " +
@@ -48,7 +48,7 @@ internal class MajorChangesWindow : Dalamud.Interface.Windowing.Window
     /// </summary>
     public override void Draw()
     {
-        PadOutMinimumWidthFor("Wrath Combo | New Changes");
+        PadOutMinimumWidthFor("Mekanist | New Changes");
 
         /*ImGuiEx.Spacing(new System.Numerics.Vector2(0, 10));
         ImGui.Separator();

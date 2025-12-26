@@ -28,7 +28,7 @@ namespace WrathCombo;
 
 public partial class WrathCombo
 {
-    private const string Command = "/wrath";
+    private const string Command = "/mek";
     private const string OldCommand = "/scombo";
 
     /// <summary>
@@ -466,7 +466,7 @@ public partial class WrathCombo
                     return;
                 }
                 default:
-                    DuoLog.Error("Usage: /wrath auto target <damage|healer> <mode>");
+                    DuoLog.Error("Usage: /mek auto target <damage|healer> <mode>");
                     return;
             }
         }
@@ -573,7 +573,7 @@ public partial class WrathCombo
                 if (argument[1] == "path")
                 {
                     DuoLog.Information(
-                        $"WrathDebug.txt should have been created at:\n" +
+                        $"MekanistDebug.txt should have been created at:\n" +
                         $"{DebugFile.GetDebugFilePath()}");
                     return;
                 }

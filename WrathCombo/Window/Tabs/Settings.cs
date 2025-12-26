@@ -73,7 +73,7 @@ internal class Settings : ConfigWindow
     {
         using (ImRaii.Child("main", new Vector2(0, 0), true))
         {
-            ImGui.Text("This tab allows you to customise global settings for Wrath Combo.");
+            ImGui.Text("This tab allows you to customise global settings for Mekanist.");
             
             DrawSearchBar();
             

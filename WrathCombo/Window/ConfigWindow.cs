@@ -263,7 +263,7 @@ internal class ConfigWindow : Dalamud.Interface.Windowing.Window
                 Settings.Draw();
                 break;
             case OpenWindow.About:
-                PunishGui.AboutTab.Draw(P.Name);
+                WrathCombo.Window.Tabs.AboutTab.Draw(P.Name);
                 break;
             case OpenWindow.Debug:
                 Debug.Draw();
