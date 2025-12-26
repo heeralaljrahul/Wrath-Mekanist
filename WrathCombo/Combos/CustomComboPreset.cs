@@ -3,6 +3,7 @@
 using ECommons.ExcelServices;
 using WrathCombo.Attributes;
 using WrathCombo.Combos.PvE;
+using WrathCombo.Combos.PvP;
 using static WrathCombo.Attributes.PossiblyRetargetedAttribute;
 
 // ReSharper disable EmptyRegion
