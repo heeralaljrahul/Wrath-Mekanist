@@ -3,15 +3,15 @@
 
     <!-- Metadata -->
     <PropertyGroup>
-        <Authors>Team Wrath</Authors>
+        <Authors>Bunz</Authors>
         <Company>-</Company>
-        <Version>1.0.3.1</Version>
+        <Version>1.0.0-beta</Version>
         <!-- This is the version that will be used when pushing to the repo.-->
-        <Description>XIVCombo for very lazy players</Description>
-        <Copyright>Copyleft attick 2021 thanks attick UwU</Copyright>
+        <Description>Mekanist - MCH combo plugin for FFXIV</Description>
+        <Copyright>Based on Wrath Combo by Puni.sh</Copyright>
         <PackageProjectUrl>https://github.com/PunishXIV/WrathCombo</PackageProjectUrl>
-        <PackageId>WrathCombo</PackageId>
-        <Product>WrathCombo</Product>
+        <PackageId>Mekanist</PackageId>
+        <Product>Mekanist</Product>
     </PropertyGroup>
 
     <!-- Build Parameters -->

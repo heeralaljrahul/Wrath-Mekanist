@@ -201,7 +201,7 @@ public sealed partial class WrathCombo : IDalamudPlugin
 
         RegisterCommands();
 
-        DtrBarEntry ??= Svc.DtrBar.Get("Wrath Combo");
+        DtrBarEntry ??= Svc.DtrBar.Get("Mekanist");
         DtrBarEntry.OnClick = (_) =>
         {
             ToggleAutoRotation(!Service.Configuration.RotationConfig.Enabled);

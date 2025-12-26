@@ -208,10 +208,6 @@ internal class ConfigWindow : Dalamud.Interface.Windowing.Window
             OpenWindow = OpenWindow.PvE;
 
         ImGui.Spacing();
-        if (ImGui.Selectable("PvP Features", OpenWindow == OpenWindow.PvP))
-            OpenWindow = OpenWindow.PvP;
-
-        ImGui.Spacing();
         if (ImGui.Selectable("Auto-Rotation", OpenWindow == OpenWindow.AutoRotation))
             OpenWindow = OpenWindow.AutoRotation;
 
@@ -255,9 +251,6 @@ internal class ConfigWindow : Dalamud.Interface.Windowing.Window
         {
             case OpenWindow.PvE:
                 PvEFeatures.Draw();
-                break;
-            case OpenWindow.PvP:
-                PvPFeatures.Draw();
                 break;
             case OpenWindow.Settings:
                 Settings.Draw();
@@ -334,7 +327,7 @@ public enum OpenWindow
 {
     None = 0,
     PvE = 1,
-    PvP = 2,
+    // PvP = 2, // Removed - Mekanist is PvE only
     Settings = 3,
     AutoRotation = 4,
     About = 5,
