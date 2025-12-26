@@ -74,7 +74,7 @@ public partial class Configuration : IPluginConfiguration
     /// <seealso cref="Mekanist.PrintLoginMessage"/>
     [SettingCategory(Main_UI_Options)]
     [Setting("Suppress Set and Unset commands feedback",
-        "Will hide chat feedback for /wrath set and /wrath unset commands.\n" +
+        "Will hide chat feedback for /mek set and /mek unset commands.\n" +
         "(Will still show feedback if the command is being overriden by IPC, or fails)",
         recommendedValue: "Preference",
         defaultValue: "Off")]
@@ -128,7 +128,7 @@ public partial class Configuration : IPluginConfiguration
     [SettingCategory(Main_UI_Options)]
     [Setting("Show Preset IDs next to Combo Names",
         "Displays the Preset ID number next to the name of each Combo and Feature.\n" +
-        "These are the IDs used for commands like `/wrath toggle <ID>`.\n" +
+        "These are the IDs used for commands like `/mek toggle <ID>`.\n" +
         "Pre-7.3 the behavior was to show a number here, but it was much shorter, and did not work in commands.",
         recommendedValue: "On",
         defaultValue: "On")]
@@ -172,9 +172,9 @@ public partial class Configuration : IPluginConfiguration
     /// <seealso cref="Mekanist.HandleOpenCommand"/>
     [Space]
     [SettingCategory(Main_UI_Options)]
-    [Setting("Open Wrath to the PvE Features Tab",
-        "When you open Wrath with `/wrath`, it will open to the PvE Features tab, instead of the last tab you were on." +
-        "\nSame as always using the `/wrath pve` command to open Wrath.",
+    [Setting("Open Mekanist to the PvE Features Tab",
+        "When you open Mekanist with `/mek`, it will open to the PvE Features tab, instead of the last tab you were on." +
+        "\nSame as always using the `/mek pve` command to open Mekanist.",
         recommendedValue: "Preference",
         defaultValue: "Off")]
     public bool OpenToPvE = false;
@@ -182,9 +182,9 @@ public partial class Configuration : IPluginConfiguration
     /// Whether, upon opening, it should go to the PvP tab in PvP zones. Default: false.
     /// <seealso cref="Mekanist.HandleOpenCommand"/>
     [SettingCategory(Main_UI_Options)]
-    [Setting("Open Wrath to the PvP Features Tab in PvP areas",
-        "Same as above, when you open Wrath with `/wrath`, it will open to the PvP Features tab, instead of the last tab you were on, when in a PvP area." +
-        "\nSimilar to using the `/wrath pvp` command to open Wrath.",
+    [Setting("Open Mekanist to the PvP Features Tab in PvP areas",
+        "Same as above, when you open Mekanist with `/mek`, it will open to the PvP Features tab, instead of the last tab you were on, when in a PvP area." +
+        "\nSimilar to using the `/mek pvp` command to open Mekanist.",
         recommendedValue: "Preference",
         defaultValue: "Off")]
     public bool OpenToPvP = false;
@@ -227,11 +227,11 @@ public partial class Configuration : IPluginConfiguration
     [SettingCategory(Rotation_Behavior_Options)]
     [Setting("Action Replacing",
         "Controls whether Actions on your Hotbar will be Replaced with combos from the plugin.\n" +
-        "If disabled, your manual presses of abilities will no longer be affected by any Wrath settings.\n\n" +
+        "If disabled, your manual presses of abilities will no longer be affected by any Mekanist settings.\n\n" +
         "Auto-Rotation will work regardless of the setting.",
-        recommendedValue: "On (This is essentially turning OFF most of Wrath)",
+        recommendedValue: "On (This is essentially turning OFF most of Mekanist)",
         defaultValue: "On",
-        warningMark: "Wrath is largely designed with Action Replacing in mind.\n" +
+        warningMark: "Mekanist is largely designed with Action Replacing in mind.\n" +
                      "Disabling it may lead to unexpected behavior, such as regarding Retargeting.")]
     public bool ActionChanging = true;
 
@@ -244,7 +244,7 @@ public partial class Configuration : IPluginConfiguration
         "This will prevent Combos from running on your Hotbar, but will still replace Actions before they are submitted to the server.\n",
         recommendedValue: "Off (But do try it if you have performance issues)",
         defaultValue: "Off",
-        warningMark: "Wrath is largely designed with Action Replacing in mind.\n" +
+        warningMark: "Mekanist is largely designed with Action Replacing in mind.\n" +
                      "Disabling it -even partially, like with this option- may lead\n" +
                      "to unexpected behavior, such as regarding Retargeting AND Openers.")]
     public bool PerformanceMode = false;
@@ -254,7 +254,7 @@ public partial class Configuration : IPluginConfiguration
     [SettingCategory(Rotation_Behavior_Options)]
     [Setting("Queued Action Suppression",
         "While Enabled:\n" +
-        "When an action is Queued that is not the same as the button on the Hotbar, Wrath will disable every other Combo, preventing them from thinking the Queued action should trigger them.\n" +
+        "When an action is Queued that is not the same as the button on the Hotbar, Mekanist will disable every other Combo, preventing them from thinking the Queued action should trigger them.\n" +
         "- This prevents combos from conflicting with each other, with overlap in actions that combos return and actions that combos replace.\n" +
         "- This does however cause the Replaced Action for each combo to 'flash' through during Suppression.\n" +
         "That 'flashed' hotbar action won't go through, it is only visual.\n\n" +
@@ -285,7 +285,7 @@ public partial class Configuration : IPluginConfiguration
                        "Result is instead of Cure II being executed, it's Regen, because we've told it to modify Cure II to Regen.\n" +
                        "This was not part of the first Feature, but rather the result of a Feature replacing an action you did not even press, therefore an incorrect action.\n\n" +
                        "Our workaround for this is to disable all other actions being replaced if they don't match the queued action, which this setting controls.",
-        warningMark: "Wrath is entirely designed with Queued Action Suppression in mind.\n" +
+        warningMark: "Mekanist is entirely designed with Queued Action Suppression in mind.\n" +
                      "Disabling it WILL lead to unexpected behavior, which we DO NOT support.")]
     public bool SuppressQueuedActions = true;
 
@@ -311,7 +311,7 @@ public partial class Configuration : IPluginConfiguration
     /// <seealso cref="CustomComboFunctions.IsMoving"/>
     [SettingCategory(Rotation_Behavior_Options)]
     [Setting("Movement Check Delay",
-        "This controls how long of a delay is needed before Wrath recognizes you as moving.\n" +
+        "This controls how long of a delay is needed before Mekanist recognizes you as moving.\n" +
         "This allows you to not have to worry about small movements affecting your rotation, primarily for casters.",
         recommendedValue: "0.0-1.0 (Above that gets into the territory of breaking any Movement Options in your Job)",
         defaultValue: "0.0",
@@ -515,7 +515,7 @@ public partial class Configuration : IPluginConfiguration
     [SettingCollapsibleGroup("Raise Stack Customization Options")]
     [SettingCategory(Targeting_Options)]
     [Setting("Custom Raise Stack",
-        "This is the order in which Wrath will try to select a " +
+        "This is the order in which Mekanist will try to select a " +
         "target to Raise,\nif Retargeting of any Raise Feature is enabled.\n\n" +
         "You can find Raise Features under PvE>General,\n" +
         "or under each caster that has a Raise.\n\n" +
@@ -544,7 +544,7 @@ public partial class Configuration : IPluginConfiguration
     /// <seealso cref="Data.ActionWatching.UpdateLastUsedAction"/>
     [SettingCategory(Troubleshooting_Options)]
     [Setting("Output Log to Chat",
-        "Will print to chat every time you use an action provided by Wrath.",
+        "Will print to chat every time you use an action provided by Mekanist.",
         recommendedValue: "On (IF trying to report an issue)",
         defaultValue: "Off")]
     public bool EnabledOutputLog = false;
