@@ -169,7 +169,7 @@ internal class AutoRotationTab : ConfigWindow
             ImGuiComponents.HelpMarker("These NPCs will be ignored by Auto-Rotation.\n" +
                                        "Every instance of this NPC will be excluded from automatic targeting (Manual will still work).\n" +
                                        "To remove an NPC from this list, select it and press the Delete button below.\n" +
-                                       "To add an NPC to this list, target the NPC and use the command: /wrath ignore");
+                                       "To add an NPC to this list, target the NPC and use the command: /mek ignore");
 
             if (_selectedNpc > 0)
             {
@@ -181,110 +181,6 @@ internal class AutoRotationTab : ConfigWindow
                     _selectedNpc = 0;
                 }
             }
-
-        }
-        ImGui.Spacing();
-        if (ImGui.CollapsingHeader("Healing Settings"))
-        {
-            ImGuiEx.TextUnderlined($"Healing Targeting Mode");
-            P.UIHelper.ShowIPCControlledIndicatorIfNeeded("HealerRotationMode");
-            changed |= P.UIHelper.ShowIPCControlledComboIfNeeded(
-                "###HealerTargetingMode", false, ref cfg.DPSRotationMode,
-                ref cfg.HealerRotationMode, "HealerRotationMode");
-            ImGuiComponents.HelpMarker("Manual - Will only heal a target if you select them manually. If the target does not meet the healing threshold settings criteria below it will skip healing in favour of DPSing (if also enabled).\n" +
-                                       "Highest Current - Prioritises the party member with the highest current HP%.\n" +
-                                       "Lowest Current - Prioritises the party member with the lowest current HP%.");
-
-            P.UIHelper.ShowIPCControlledIndicatorIfNeeded("SingleTargetHPP");
-            changed |= P.UIHelper.ShowIPCControlledSliderIfNeeded(
-                "Single Target HP% Threshold", ref cfg.HealerSettings.SingleTargetHPP, "SingleTargetHPP");
-
-            P.UIHelper.ShowIPCControlledIndicatorIfNeeded("SingleTargetRegenHPP");
-            changed |= P.UIHelper.ShowIPCControlledSliderIfNeeded(
-                "Single Target HP% Threshold (target has Regen/Aspected Benefic)", ref cfg.HealerSettings.SingleTargetRegenHPP, "SingleTargetRegenHPP");
-            ImGuiComponents.HelpMarker("You typically want to set this lower than the above setting.");
-                
-            P.UIHelper.ShowIPCControlledIndicatorIfNeeded("SingleTargetExcogHPP");
-            changed |= P.UIHelper.ShowIPCControlledSliderIfNeeded(
-                "Single Target HP% Threshold (target has Excogitation)", ref cfg.HealerSettings.SingleTargetExcogHPP, "SingleTargetExcogHPP");
-            ImGuiComponents.HelpMarker("You typically want to set this lower than the above setting.");
-
-            P.UIHelper.ShowIPCControlledIndicatorIfNeeded("AoETargetHPP");
-            changed |= P.UIHelper.ShowIPCControlledSliderIfNeeded(
-                "AoE HP% Threshold", ref cfg.HealerSettings.AoETargetHPP, "AoETargetHPP");
-
-            var input = ImGuiEx.InputInt(100f.Scale(), "Targets Required for AoE Healing Features", ref cfg.HealerSettings.AoEHealTargetCount);
-            if (input)
-            {
-                changed |= input;
-                if (cfg.HealerSettings.AoEHealTargetCount < 0)
-                    cfg.HealerSettings.AoEHealTargetCount = 0;
-            }
-            ImGuiComponents.HelpMarker($"Disabling this will turn off AoE Healing features. Otherwise will require the amount of targets required to be in range of an AoE feature's heal to use.");
-            ImGuiEx.SetNextItemWidthScaled(100);
-            changed |= ImGui.InputInt("Delay to start healing once above conditions are met (seconds)", ref cfg.HealerSettings.HealDelay);
-
-            if (cfg.HealerSettings.HealDelay < 0)
-                cfg.HealerSettings.HealDelay = 0;
-            ImGuiComponents.HelpMarker("Don't set this too high! 1-2 seconds is normally comfy enough to be considered a natural reaction.");
-
-            ImGui.Spacing();
-
-            P.UIHelper.ShowIPCControlledIndicatorIfNeeded("AutoRez");
-            changed |= P.UIHelper.ShowIPCControlledCheckboxIfNeeded(
-                "Auto-Resurrect", ref cfg.HealerSettings.AutoRez, "AutoRez");
-            ImGuiComponents.HelpMarker($"Will attempt to resurrect dead party members (not applicable to MCH).");
-            var autoRez = (bool)P.IPC.GetAutoRotationConfigState(AutoRotationConfigOption.AutoRez)!;
-            if (autoRez)
-            {
-                ImGuiExtensions.Prefix(false);
-                P.UIHelper.ShowIPCControlledIndicatorIfNeeded("AutoRezOutOfParty");
-                changed |= P.UIHelper.ShowIPCControlledCheckboxIfNeeded(
-                    "Apply to Out of Party Members", ref cfg.HealerSettings.AutoRezOutOfParty, "AutoRezOutOfParty");
-
-                ImGuiExtensions.Prefix(false);
-                changed |= ImGui.Checkbox("Require Swiftcast/Dualcast", ref
-                    cfg.HealerSettings.AutoRezRequireSwift);
-                ImGuiComponents.HelpMarker(
-                    $"Requires Swiftcast or Dualcast to be available to resurrect a party member, to avoid hard-casting.");
-
-                ImGuiExtensions.Prefix(true);
-                P.UIHelper.ShowIPCControlledIndicatorIfNeeded("AutoRezDPSJobs");
-                changed |= P.UIHelper.ShowIPCControlledCheckboxIfNeeded(
-                    $"Apply to DPS Jobs", ref cfg.HealerSettings.AutoRezDPSJobs, "AutoRezDPSJobs");
-                ImGuiComponents.HelpMarker($"Not applicable to MCH.");
-
-                if (cfg.HealerSettings.AutoRezDPSJobs)
-                {
-                    ImGuiExtensions.Prefix(true);
-                    P.UIHelper.ShowIPCControlledIndicatorIfNeeded("AutoRezDPSJobsHealersOnly");
-                    changed |= P.UIHelper.ShowIPCControlledCheckboxIfNeeded(
-                        $"Only Raise Raisers", ref cfg.HealerSettings.AutoRezDPSJobsHealersOnly, "AutoRezDPSJobsHealersOnly");
-                    ImGuiComponents.HelpMarker($"Not applicable to MCH.");
-                }
-            }
-
-            P.UIHelper.ShowIPCControlledIndicatorIfNeeded("AutoCleanse");
-            changed |= P.UIHelper.ShowIPCControlledCheckboxIfNeeded(
-                $"Auto-Esuna", ref cfg.HealerSettings.AutoCleanse, "AutoCleanse");
-            ImGuiComponents.HelpMarker($"Will Esuna any cleansable debuffs (not applicable to MCH).");
-
-            P.UIHelper.ShowIPCControlledIndicatorIfNeeded("ManageKardia");
-            changed |= P.UIHelper.ShowIPCControlledCheckboxIfNeeded(
-                $"Automatically Manage Kardia", ref cfg.HealerSettings.ManageKardia, "ManageKardia");
-            ImGuiComponents.HelpMarker($"Not applicable to MCH.");
-            if (cfg.HealerSettings.ManageKardia)
-            {
-                ImGuiExtensions.Prefix(cfg.HealerSettings.ManageKardia);
-                changed |= ImGui.Checkbox($"Limit Kardia swapping to tanks only", ref cfg.HealerSettings.KardiaTanksOnly);
-            }
-
-            changed |= ImGui.Checkbox($"Pre-emptively apply Heal Over Time/Shields on focus target", ref cfg.HealerSettings.PreEmptiveHoT);
-            ImGuiComponents.HelpMarker($"Not applicable to MCH.");
-
-            P.UIHelper.ShowIPCControlledIndicatorIfNeeded("IncludeNPCs");
-            changed |= P.UIHelper.ShowIPCControlledCheckboxIfNeeded("Heal Friendly NPCs", ref cfg.HealerSettings.IncludeNPCs);
-            ImGuiComponents.HelpMarker("Useful for healer quests where NPCs are expected to be healed but aren't added directly to your party.");
 
         }
 

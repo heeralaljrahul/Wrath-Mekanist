@@ -51,14 +51,14 @@ internal static class AboutTab
         ImGuiEx.LineCentered("###AboutTabDivider2", () => ImGuiEx.SeparatorEx(1));
         ImGuiEx.Spacing(2);
 
-        // Machinist-themed description
+        // Mekanist-themed description
         ImGuiEx.CenterCursor(400f);
-        ImGui.TextWrapped("Mekanist - A specialized combo plugin for Machinist (MCH)");
+        ImGui.TextWrapped("Mekanist - A specialized combo plugin for the MCH job");
 
         ImGuiEx.Spacing(1);
         ImGuiEx.CenterCursor(420f);
         ImGuiEx.TextWrapped(ImGuiColors.DalamudGrey,
-            "Condenses combos and abilities for a streamlined Machinist gameplay experience.");
+            "Condenses combos and abilities for a streamlined Mekanist gameplay experience.");
 
         ImGuiEx.Spacing(3);
 

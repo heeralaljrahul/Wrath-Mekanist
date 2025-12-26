@@ -181,23 +181,23 @@ internal class ConfigWindow : Dalamud.Interface.Windowing.Window
             // Use the local image over a remote one
             imagePath = Path.Combine(
                 Svc.PluginInterface.AssemblyLocation.Directory?.FullName!,
-                "images\\wrathcombo.png");
-            if (EzThrottler.Throttle("logTypeOfWrathIconUsed", 45000))
-                PluginLog.Verbose("Using Local WrathCombo Icon");
+                "images\\wrathcombo.png"); // TODO: Replace with mekanist icon
+            if (EzThrottler.Throttle("logTypeOfMekanistIconUsed", 45000))
+                PluginLog.Verbose("Using Local Mekanist Icon");
         }
         catch (Exception)
         {
             // Fallback to the remote icon if there are any issues
             imagePath = Svc.PluginInterface.Manifest.IconUrl ?? "";
-            if (EzThrottler.Throttle("logTypeOfWrathIconUsed", 45000))
+            if (EzThrottler.Throttle("logTypeOfMekanistIconUsed", 45000))
                 PluginLog.Verbose(
-                    "Using Remote WrathCombo Icon\n             " +
+                    "Using Remote Mekanist Icon\n             " +
                     Svc.PluginInterface.AssemblyLocation.Directory?.FullName! +
                     "images\\wrathcombo.png");
         }
 
         if (ThreadLoadImageHandler.TryGetTextureWrap(imagePath, out var logo))
-            ImGuiEx.LineCentered("###WrathLogo", () =>
+            ImGuiEx.LineCentered("###MekanistLogo", () =>
                 ImGui.Image(logo.Handle, imageSize));
 
         ImGui.Spacing();

@@ -33,6 +33,11 @@ public class DPSSettings
     public bool UnTargetAndDisableForPenalty = false;
 }
 
+/// <summary>
+/// Healer settings configuration stub.
+/// Not applicable to Machinist-only (Mekanist) implementation.
+/// Retained for compatibility with base framework.
+/// </summary>
 public class HealerSettings
 {
     public int SingleTargetHPP = 70;

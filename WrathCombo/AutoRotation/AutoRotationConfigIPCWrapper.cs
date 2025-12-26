@@ -145,6 +145,11 @@ public class DPSSettingsIPCWrapper(DPSSettings settings)
     #endregion
 }
 
+/// <summary>
+/// Healer settings IPC wrapper stub.
+/// Not applicable to Machinist-only (Mekanist) implementation.
+/// Retained for compatibility with base framework.
+/// </summary>
 public class HealerSettingsIPCWrapper(HealerSettings settings)
 {
     public int SingleTargetHPP =>
